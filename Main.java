@@ -1,12 +1,12 @@
-import java.util.ArrayList;
-import java.util.Vector;
+import java.util.LinkedList;
+import java.util.ListIterator;
 
 
 /*
     ArrayList : mono-thread, accès direct, optimisée pour la lecture
     LinkedList : insertions rapides
     Vector : multi-thread, accès direct, optimisée pour la lecture
-    Stack :
+    Stack : LIFO
 
     Informations Ordonnées, acceptent les valeurs Nulles et les doublons
     
@@ -14,29 +14,31 @@ import java.util.Vector;
         Capacité != Taile
         Taille <= Capacité
 
-    add(), addAll(), remove(), clear(), size(), //Vectors : capacity()
+    add(), addAll(), get(),remove(), clear(), size(), //Vectors : capacity()
+
+    LinkedList methods : 
+        addFirst(), addLast, removeFirst(), removeLast(), getFirst(), getLast()
 */
 
 public class Main
 {
     public static void main(String[] args) 
     {
-        Vector<Cat> group = new Vector<Cat>();
+        LinkedList<Cat> group = new LinkedList<Cat>();
 
         Cat c1 = new Cat("Toudoux");
         Cat c2 = new Cat("Popy");
         Cat c3 = new Cat("Maki");
 
-        group.add(c1);
-        group.add(c2);
-        group.add(c3);
+        group.addFirst(c1);
+        group.addFirst(c2);
+        group.addFirst(c3);
 
-        for(Cat c: group)
-            c.meow();
-        System.out.println("\n"+ group.get(0) + "\n");
+        ListIterator<Cat> lit = group.listIterator();
 
-        System.out.println("Taille : "+group.size());
-        System.out.println("Capacite : "+group.capacity()); // Pour les Vectors
+        while(lit.hasNext())
+            lit.next().meow();
+
 
         
     }
