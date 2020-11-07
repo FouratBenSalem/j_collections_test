@@ -39,11 +39,18 @@ public class Main
 
         while(lit.hasNext())
             lit.next().meow();
+        System.out.println("We are "+Cat.count+" cats\n"+"We're all " + Cat.mAge+" years old.");
 
         System.out.println("\nSommet de la liste : "+group.peek());
         group.peek().meow();
+        group.pop();
+        System.out.println("\nRemoved last cat\n");
+        
 
 
+
+        // this code is now available on github at : 
+        // https://github.com/FouratBenSalem/j_collections_test.git
         
     }
 }
